@@ -20,8 +20,7 @@
         <div class="item-detail">
           <div class="item-">{{ name }}</div>
           <div class="item-message">
-            <!-- <nl2br tag="div" :v-text="message" /> -->
-            <div :v-text="message"></div>
+            <div :v-text="message">{{ message }}</div>
           </div>
         </div>
       </section>
@@ -40,12 +39,9 @@
 
 <script>
 import firebase from 'firebase'
-// import Nl2br from 'vue-nl2br'
 
 export default {
-  components: {
-    // Nl2br
-  },
+  components: {},
   data() {
     return {
       user: {}, // User information
@@ -83,7 +79,7 @@ export default {
         window.scrollTo(0, document.body.clientHeight)
       })
     },
-    // Add recieved messages to Chat
+    // Add received messages to Chat
     // Called every time when new item is added to DB 
     childAdded(snap) {
       const message = snap.val()
